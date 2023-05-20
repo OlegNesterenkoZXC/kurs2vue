@@ -6,11 +6,11 @@ import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false
 
-const itemsJSON = require('./../public/items.json');
+
 const contract_addressJSON = require('./../../BestToken-address.json');
 const abiJSON = require('./../../BestToken.json');
 
-store.dispatch('setItems', { items: itemsJSON.items })
+
 store.commit('setContractAddress', contract_addressJSON.BestToken)
 store.commit('setAbi', abiJSON.abi)
 

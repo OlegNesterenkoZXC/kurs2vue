@@ -1,9 +1,12 @@
 <template>
 	<v-card>
-		<v-card-title>{{ id }}</v-card-title>
-		<v-img :src="image" max-width="100%"></v-img>
-		<v-card-text>Всего: {{ supplyCount }}</v-card-text>
-		<v-card-text>У вас: {{ count }}</v-card-text>
+		<v-img :src="image" max-height="400"></v-img>
+		<v-card-title>{{ title }}</v-card-title>
+		<v-card-text>{{ body }}</v-card-text>
+		<v-card-text><a target="_blank" :href="url">Подробнее</a></v-card-text>
+		<v-divider></v-divider>
+		<v-card-text v-show="this.connection_status == 'connected'">Всего: {{ supplyCount }}</v-card-text>
+		<v-card-text v-show="this.connection_status == 'connected'">У вас: {{ count }}</v-card-text>
 		<div :dummy="force_react"></div>
 	</v-card>
 </template>
@@ -14,8 +17,11 @@ import { EtherSymbol, ethers } from 'ethers';
 export default {
 	name: 'MyItem',
 	props: {
-		id: Number,
+		id: String,
+		title: String,
+		body: String,
 		image: String,
+		url: String,
 	},
 	data: () => ({
 		supplyCount: '',

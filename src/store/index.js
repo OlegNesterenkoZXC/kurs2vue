@@ -10,7 +10,6 @@ export default new Vuex.Store({
 		account_address: '',
 		contract_address: '',
 		abi: {},
-		items: [],
 	},
 	getters: {
 	},
@@ -24,9 +23,6 @@ export default new Vuex.Store({
 		setAddress(state, address) {
 			state.account_address = address;
 		},
-		setItems(state, items) {
-			state.items = items;
-		},
 		setAbi(state, abi) {
 			state.abi = abi;
 		},
@@ -39,9 +35,6 @@ export default new Vuex.Store({
 			context.commit('setMetaMastProvider', payload.provider);
 			context.commit('setAddress', payload.account);
 			context.commit('setStatusConnected');
-		},
-		setItems(context, payload) {
-			context.commit('setItems', payload.items);
 		},
 	},
 	modules: {
